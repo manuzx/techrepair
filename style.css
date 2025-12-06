@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Seleciona todos os elementos */
 * {
     /* Remove margens e preenchimentos padrão */
@@ -44,3 +45,41 @@ img{
     color: inherit;        /* Herda a cor do texto do pai */
     /* Você pode adicionar padding: 0.5rem 1rem; aqui se quiser aumentar a área de clique */
 }
+=======
+.servicos {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-direction: row;
+    padding: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.servicos .serv-divs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    background-color: rgb(250, 250, 250);
+    border-radius: 0.5rem;
+}
+
+.servicos .serv-divs:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgb(216, 216, 216);
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.02);
+    transition: all 0.1s ease-in-out;
+}
+
+.servicos .serv-divs h1 {
+    font-size: 2rem;
+    color: black;
+}
+
+.servicos .serv-divs p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+}
+>>>>>>> f42aaeb904fae4a72172552d95f65c745f83a97c
