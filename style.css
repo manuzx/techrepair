@@ -1,0 +1,331 @@
+/*
+======================================================
+1. Reset Básico & Variáveis
+======================================================
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif; /* Fonte moderna */
+}
+
+:root {
+    --primary-color: #007bff; /* Azul Vibrante para Ação */
+    --secondary-color: #333; /* Texto Principal Escuro */
+    --background-light: #e9f7ea; /* Fundo Leve */
+    --card-background: #fffdfd; /* Fundo do Card */
+    --text-light: #fff;
+    --shadow-effect: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--background-light);
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/*
+======================================================
+2. Header e Navegação
+======================================================
+*/
+header {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    box-shadow: var(--shadow-effect);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    max-height: 50px;
+    filter: brightness(0) invert(1); /* Deixa a logo branca/clara se ela for escura */
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu a {
+    color: var(--text-light);
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/*
+======================================================
+3. Banner (Seção Quem Somos)
+======================================================
+*/
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('imgs/tech-background.jpg') no-repeat center center/cover;
+    /* Adicione uma imagem de fundo tecnológica na pasta 'imgs' */
+    color: var(--text-light);
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 30px;
+}
+
+.banner-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.banner-content h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.banner-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+/*
+======================================================
+4. Conteúdo Principal e Layout de Cards
+======================================================
+*/
+.hero-content {
+    padding: 20px 5%;
+    text-align: center;
+    max-width: 1200px; /* Limita a largura do conteúdo principal */
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.hero-content h2:nth-of-type(2) { /* Citação */
+    font-style: italic;
+    font-size: 1.4em;
+    color: #666;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 20px;
+}
+
+/* Container que organiza os cards */
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px; /* Espaço entre os cards */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+}
+
+/* Estilo do Card individual */
+.service-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--shadow-effect);
+    overflow: hidden;
+    width: 30%; /* Três cards por linha */
+    min-width: 280px; /* Largura mínima para evitar quebra feia */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para uniformizar as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    padding: 15px 10px;
+    background-color: var(--background-light);
+    margin: 0;
+}
+
+/* Reorganização do HTML para usar o Card */
+.hero-content > h3, .hero-content > img {
+    display: none; /* Esconde os elementos originais */
+}
+
+/*
+======================================================
+5. Responsividade
+======================================================
+*/
+@media (max-width: 992px) {
+    .service-card {
+        width: 45%; /* Duas colunas em tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    
+    .menu ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-card {
+        width: 90%; /* Uma coluna em celulares */
+    }
+    
+    .banner-content h1 {
+        font-size: 2em;
+    }
+}
+
+/* Altera a seção de serviços */
+.servicos {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-direction: row;
+    padding: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+/* Altera os blocos dentro da seção de serviços */
+.servicos .serv-divs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    background-color: rgb(250, 250, 250);
+    border-radius: 0.5rem;
+}
+
+/* Animação ao passar mouse por cima dos blocos */
+.servicos .serv-divs:hover {
+    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgb(216, 216, 216);
+    background-color: rgb(240, 240, 240);
+    transform: scale(1.02);
+    transition: all 0.1s ease-in-out;
+}
+
+/* Estiliza os títulos nos blocos */
+.servicos .serv-divs h1 {
+    font-size: 2rem;
+    color: black;
+}
+
+/* Estiliza os textos nos blocos*/
+.servicos .serv-divs p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+}
+
+/* Seleciona todos os elementos */
+
+
+/* Garante que imagens e mídia sejam responsivas e não ultrapassem seus contêineres */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img{
+    max-width: 9rem;
+}
+.menu ul {
+    display: flex;
+    /* Use 'rem' ou 'px' para definir a distância entre os links */
+    gap: 2rem;
+    margin-right: 1rem; 
+    font-size: 25px
+}
+.menu a {
+    /* O display: block ou inline-block ajuda a aplicar padding/margin no link se precisar */
+    display: inline-block; 
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit;        /* Herda a cor do texto do pai */
+    /* Você pode adicionar padding: 0.5rem 1rem; aqui se quiser aumentar a área de clique */
+}
+
+/*
+======================================================
+6. Rodapé (Footer)
+======================================================
+*/
+footer {
+    /* Cor de fundo escura, pegando a cor de texto principal */
+    background-color: var(--secondary-color);
+    color: var(--text-light); /* Cor do texto claro */
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    border-top: 3px solid var(--primary-color); /* Toque de cor vibrante */
+}
+
+/* Estilo para os direitos autorais */
+footer br {
+    display: none; /* Remove a quebra de linha padrão do HTML para controle via CSS */
+}
+footer::before {
+    content: "";
+    display: block;
+    height: 10px; /* Espaço entre a linha de direitos e o texto social */
+}
+
+/* Estilo para a linha "Acesse nossas redes sociais:" */
+footer p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* Estilo para os links de Redes Sociais (ícones) */
+footer a {
+    color: var(--primary-color); /* Cor dos ícones usando a cor primária */
+    font-size: 1.8em; /* Aumenta o tamanho dos ícones do Font Awesome */
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+footer a:hover {
+    color: var(--text-light); /* Ícone fica branco no hover */
+    transform: scale(1.1);
+}
