@@ -50,7 +50,7 @@ header {
 }
 
 header img {
-    max-height: 50px;
+    max-height: 80px;
     filter: brightness(0) invert(1); /* Deixa a logo branca/clara se ela for escura */
 }
 
